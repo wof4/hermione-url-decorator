@@ -1,9 +1,9 @@
-const URI = requaire('urijs')
+const URI = require('urijs')
 
 
 module.exports = (hermione, opts) => {
     hermione.on(hermione.events.NEW_BROWSER, (browser) => {
-        browser.overwriteComand('url', (origUrlFn, uri) => {
+        browser.overwriteCommand('url', (origUrlFn, uri) => {
             uri = uri
                 ? new URI(uri).addQuery(opts.query).toString()
                 : uri;
